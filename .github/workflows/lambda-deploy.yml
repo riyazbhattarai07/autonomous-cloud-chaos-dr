@@ -1,0 +1,26 @@
+name: Lambda Deploy
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "src/**"
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  lambda:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Package & update functions
+        run: ./scripts/deploy-lambda-functions.sh

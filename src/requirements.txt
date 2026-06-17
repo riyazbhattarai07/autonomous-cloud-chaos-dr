@@ -1,0 +1,3 @@
+# Lambda runtime already includes boto3/botocore. This file documents intent
+# and is used by local tests. No third-party runtime dependencies.
+boto3>=1.34.0

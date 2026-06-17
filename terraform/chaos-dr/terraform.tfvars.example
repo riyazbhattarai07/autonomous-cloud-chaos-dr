@@ -1,0 +1,11 @@
+# Copy to terraform.tfvars and edit before deploying.
+# aws_region        = "us-east-1"
+# environment       = "demo"
+# project_name      = "chaos-dr"
+# instance_type     = "t3.micro"
+# target_count      = 2
+# vpc_cidr          = "10.20.0.0/16"
+# rto_target_minutes = 2
+# domain_name       = ""   # set to your Route 53 hosted zone to enable failover DNS
+# schedule_expression = "cron(0 2 ? * SUN *)"
+# health_check_path = "/health"
